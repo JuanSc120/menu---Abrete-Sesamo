@@ -1,0 +1,232 @@
+/* --- ESTILO ÁBRETE SÉSAMO: VERSIÓN FINAL 2026 --- */
+
+:root {
+    --negro-solido: #000000;
+    --texto-plato: #1a1a1a; 
+    --dorado-combo: #e5c08a; 
+    --fuente-vintage: 'Special Elite', cursive;
+    --fuente-serif: 'Old Standard TT', serif;
+    /* Colores Kraft Digital */
+    --kraft-claro: #e3c59e;
+    --kraft-oscuro: #c5a378;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050505; 
+    font-family: var(--fuente-serif);
+    color: var(--texto-plato);
+}
+
+/* --- BANNER --- */
+.header-banner {
+    width: 100%;
+    background-color: var(--negro-solido);
+    overflow: hidden;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    max-height: 550px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(1.1);
+}
+
+/* --- CONTENEDOR PAPEL KRAFT --- */
+.contenedor-principal {
+    max-width: 1150px;
+    margin: -50px auto 80px; 
+    position: relative;
+    z-index: 10;
+    padding: 0 15px;
+}
+
+.papel-textura {
+    background-color: var(--kraft-claro);
+    background-image: 
+        url('https://www.transparenttextures.com/patterns/cardboard-flat.png'),
+        linear-gradient(to bottom right, var(--kraft-claro), var(--kraft-oscuro));
+    padding: 70px 50px;
+    box-shadow: 0 30px 90px rgba(0,0,0,0.9);
+    border-radius: 4px;
+}
+
+/* --- MENÚ GRID --- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.etiqueta-negra {
+    background: var(--negro-solido);
+    color: #ffffff;
+    font-family: var(--fuente-vintage);
+    padding: 10px 20px;
+    display: inline-block;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+/* --- PLATOS --- */
+.plato { margin-bottom: 25px; }
+
+.header-item {
+    display: flex;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.puntos {
+    flex: 1;
+    border-bottom: 2px dotted rgba(0,0,0,0.3);
+    margin: 0 10px;
+}
+
+.precio { font-family: var(--fuente-vintage); }
+
+.descripcion {
+    font-size: 0.88rem;
+    color: #333;
+    font-style: italic;
+    margin-top: 5px;
+    line-height: 1.3;
+}
+
+/* --- COMBO NEGRO --- */
+.combo-negro {
+    background: var(--negro-solido);
+    color: #ffffff;
+    padding: 30px;
+    text-align: center;
+    border: 2px solid var(--dorado-combo);
+    margin: 30px 0;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.3);
+}
+
+.combo-negro h3 {
+    font-family: var(--fuente-vintage);
+    font-size: 1.4rem;
+    color: var(--dorado-combo);
+    margin-bottom: 10px;
+}
+
+/* --- GALERÍA (AJUSTADA PARA 3 IMÁGENES) --- */
+.galeria-platos {
+    margin-top: 60px;
+    text-align: center;
+    border-top: 2px dashed rgba(0,0,0,0.1);
+    padding-top: 40px;
+}
+
+.grid-imagenes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: center; /* Centra las 3 imágenes si sobran espacio */
+}
+
+.foto-plato {
+    overflow: hidden;
+    background: #ffffff;
+    padding: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease;
+}
+
+.foto-plato img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(1.1) contrast(1.1);
+    transition: transform 0.6s ease;
+}
+
+/* ZOOM */
+.foto-plato:hover {
+    transform: scale(1.03) translateY(-10px);
+}
+
+.foto-plato:hover img {
+    transform: scale(1.1);
+}
+
+.item-simple {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-weight: bold;
+}
+
+/* --- RESPONSIVE FINAL OPTIMIZADO --- */
+@media (max-width: 768px) {
+    /* Reducimos el espacio interno del papel para ganar pantalla */
+    .papel-textura {
+        padding: 30px 15px;
+        margin: 0;
+    }
+
+    /* Bajamos un poco el tamaño de los títulos de categoría */
+    .etiqueta-negra {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+        margin-bottom: 20px;
+    }
+
+    /* Ajustamos el tamaño de los platos para que el precio no salte de línea */
+    .header-item {
+        font-size: 0.95rem;
+    }
+
+    .precio {
+        font-size: 1rem;
+    }
+
+    .descripcion {
+        padding-right: 0; /* Aprovechamos todo el ancho en móviles */
+        font-size: 0.85rem;
+    }
+
+    /* El banner se ajusta para no ocupar toda la pantalla inicial */
+    .banner-img {
+        max-height: 250px;
+    }
+
+    /* Las 3 fotos finales se verán una debajo de otra, bien grandes */
+    .grid-imagenes {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .foto-plato img {
+        height: 200px; /* Un poco más cortas para que no sea eterno el scroll */
+    }
+
+    .combo-negro h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Ajuste para celulares muy pequeños (iPhone SE / pantallas de 320px) */
+@media (max-width: 350px) {
+    .header-item {
+        flex-direction: column; /* El precio baja debajo del nombre si no cabe */
+        gap: 5px;
+    }
+    .puntos {
+        display: none; /* Quitamos los puntos en pantallas mini para limpiar la vista */
+    }
+}
