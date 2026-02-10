@@ -70,6 +70,7 @@ body {
     margin: 25px 0 15px;
     font-size: 1.1rem;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* PLATOS CON PUNTOS (Entradas, Carnes, etc) */
@@ -78,7 +79,7 @@ body {
     justify-content: space-between;
     align-items: baseline;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.05rem;
 }
 
 .puntos { 
@@ -90,11 +91,11 @@ body {
 .precio { 
     font-family: var(--fuente-vintage); 
     color: #000; 
-    white-space: nowrap; /* Evita que el precio se parta en dos */
+    white-space: nowrap; 
 }
 
 .descripcion {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     color: #333;
     font-style: italic;
     margin-top: 4px;
@@ -102,20 +103,21 @@ body {
     padding-right: 10px;
 }
 
-/* BEBIDAS Y ADICIONALES (Alineación perfecta para móvil) */
+/* BEBIDAS, PORCIONES Y JUGOS (Alineación exacta) */
 .item-simple {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.15);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     font-size: 0.95rem;
     font-weight: 700;
 }
 
 .item-simple span {
-    padding-right: 15px;
+    padding-right: 10px;
     text-transform: uppercase;
+    flex: 1; /* Esto empuja el precio al final */
 }
 
 .item-simple b {
@@ -123,6 +125,8 @@ body {
     color: #000;
     white-space: nowrap;
     text-align: right;
+    background-color: rgba(255,255,255,0.1); /* Sutil realce */
+    padding-left: 5px;
 }
 
 /* COMBO */
@@ -157,27 +161,34 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* --- AJUSTES PARA CELULAR --- */
+/* --- AJUSTES PARA CELULAR (Mobile First) --- */
 @media (max-width: 600px) {
     .papel-textura { 
-        padding: 30px 20px; 
+        padding: 30px 15px; 
     }
     
     .header-item { 
-        font-size: 0.95rem; 
+        font-size: 1rem; 
     }
     
     .item-simple { 
         font-size: 0.85rem; 
+        padding: 10px 0;
     }
 
     .banner-img { 
-        max-height: 220px; 
+        max-height: 200px; 
     }
 
     .etiqueta-negra {
         font-size: 1rem;
-        width: 100%; /* Las etiquetas ocupan todo el ancho en móvil */
+        width: 100%; 
         text-align: center;
+        display: block;
+    }
+
+    
+    .item-simple span {
+        max-width: 70%;
     }
 }
